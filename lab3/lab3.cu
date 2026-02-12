@@ -49,14 +49,16 @@ __global__ void matrixMultiplyShared(float *A, float *B, float *C,
     
     // Phase 2: multiple data
     // tileA_{threadIdx.y * TILE_WIDTH + j} * tileA_{j * TILE_WIDTH + threadIdx.x}
-    for (int j = 0; j < TILE_WIDTH; j++) {
-      pValue += tileA[y][j] * tileB[j][x];
+    if (row < numCRows && col < numCColumns) {
+      for (int j = 0; j < TILE_WIDTH; j++) {
+        pValue += tileA[y][j] * tileB[j][x];
+      }
     }
     __syncthreads();
   }
 
   if (row < numCRows && col < numCColumns) {
-      C[row * numCColumns + col] += pValue;
+      C[row * numCColumns + col] = pValue;
   }
 }
 
