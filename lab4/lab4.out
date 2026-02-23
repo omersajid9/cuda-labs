@@ -1,0 +1,83 @@
+job 16165858 is starting on gpub001.delta.ncsa.illinois.edu
+
+
+
+memcheck tests:
+========= COMPUTE-SANITIZER
+The input size is 8x8x8
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+The input size is 16x4x4
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+The input size is 4x16x4
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+The input size is 4x4x16
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+The input size is 8x8x8
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+The input size is 31x17x59
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+
+initcheck tests:
+========= COMPUTE-SANITIZER
+The input size is 8x8x8
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+The input size is 16x4x4
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+The input size is 4x16x4
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+The input size is 4x4x16
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+The input size is 8x8x8
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+The input size is 31x17x59
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+
+synccheck tests:
+========= COMPUTE-SANITIZER
+The input size is 8x8x8
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+The input size is 16x4x4
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+The input size is 4x16x4
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+The input size is 4x4x16
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+The input size is 8x8x8
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+The input size is 31x17x59
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+
+all tests completed.

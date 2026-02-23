@@ -41,8 +41,7 @@ __global__ void conv3d(float *input, float *output, const int z_size,
   // shared tile memory
   __shared__ float tile[TILE_WIDTH + MASK_WIDTH - 1][TILE_WIDTH + MASK_WIDTH - 1][TILE_WIDTH + MASK_WIDTH - 1];
 
-
-  // Load the tile data
+  // load input data into tile
   if (input_x >= 0 && input_x < x_size && input_y >= 0 && input_y < y_size && input_z >= 0 && input_z < z_size) {
     tile[tx][ty][tz] = input[convert3Dto1DIndex(input_x, input_y, input_z, x_size, y_size, z_size)];
   } else {
@@ -75,8 +74,8 @@ int main(int argc, char *argv[]) {
   float *hostInput;
   float *hostKernel;
   float *hostOutput;
-  //@@ Initial deviceInput and deviceOutput here.
 
+  //@@ Initial deviceInput and deviceOutput here.
   float *deviceInput;
   float *deviceOutput;
 
@@ -101,14 +100,11 @@ int main(int argc, char *argv[]) {
   // Recall that inputLength is 3 elements longer than the input data
   // because the first  three elements were the dimensions
 
-  int in_image_elems = z_size * y_size * x_size;
-  size_t in_image_size = in_image_elems * sizeof(float);
+  int image_elems = z_size * y_size * x_size;
+  size_t image_size = image_elems * sizeof(float);
 
-  int out_image_elems = z_size * y_size * x_size;
-  size_t out_image_size = out_image_elems * sizeof(float);
-
-  cudaMalloc((void **) &deviceInput, in_image_size);
-  cudaMalloc((void **) &deviceOutput, out_image_size);
+  cudaMalloc((void **) &deviceInput, image_size);
+  cudaMalloc((void **) &deviceOutput, image_size);
 
   size_t kernel_size = kernelLength * sizeof(float);
 
@@ -116,24 +112,23 @@ int main(int argc, char *argv[]) {
   // Recall that the first three elements of hostInput are dimensions and
   // do
   // not need to be copied to the gpu
-  cudaMemcpy(deviceInput, hostInput + 3, in_image_size, cudaMemcpyHostToDevice);
+  cudaMemcpy(deviceInput, hostInput + 3, image_size, cudaMemcpyHostToDevice);
 
   cudaMemcpyToSymbol(deviceKernel, hostKernel, kernel_size, 0, cudaMemcpyHostToDevice);
 
   //@@ Initialize grid and block dimensions here
   dim3 dimBlock(TILE_WIDTH + MASK_WIDTH - 1, TILE_WIDTH + MASK_WIDTH - 1, TILE_WIDTH + MASK_WIDTH - 1);
-  dim3 dimGrid(ceil((float)x_size / TILE_WIDTH), ceil((float)y_size / TILE_WIDTH), ceil((float)z_size / TILE_WIDTH));
+  dim3 dimGrid(ceil((float)x_size / (float)TILE_WIDTH), ceil((float)y_size / (float)TILE_WIDTH), ceil((float)z_size / (float)TILE_WIDTH));
 
   //@@ Launch the GPU kernel here
   conv3d<<<dimGrid, dimBlock>>>(deviceInput, deviceOutput, z_size, y_size, x_size);
   cudaDeviceSynchronize();
 
 
-
   //@@ Copy the device memory back to the host here
   // Recall that the first three elements of the output are the dimensions
   // and should not be set here (they are set below)
-  cudaMemcpy(hostOutput+3, deviceOutput, out_image_size, cudaMemcpyDeviceToHost);
+  cudaMemcpy(hostOutput+3, deviceOutput, image_size, cudaMemcpyDeviceToHost);
 
 
 
