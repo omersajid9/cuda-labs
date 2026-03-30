@@ -1,0 +1,2 @@
+Running "module reset". Resetting modules to system default. The following $MODULEPATH directories have been removed: /sw/rh9.4/spack/default/modules/lmod/linux-rhel9-x86_64/Core
+srun: Step created for StepId=17031991.4
