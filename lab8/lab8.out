@@ -1,0 +1,74 @@
+job 17751788 is starting on gpub001.delta.ncsa.illinois.edu
+
+
+
+memcheck tests:
+========= COMPUTE-SANITIZER
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+
+initcheck tests:
+========= COMPUTE-SANITIZER
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+
+synccheck tests:
+========= COMPUTE-SANITIZER
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+Solution is correct
+========= ERROR SUMMARY: 0 errors
+
+all tests completed.
